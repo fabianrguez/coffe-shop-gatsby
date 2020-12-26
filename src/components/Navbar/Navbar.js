@@ -11,12 +11,14 @@ function Navbar() {
   ]);
 
   return (
-    <nav className="navbar navbar-expand-sm bg-light navbar-light">
+    <nav className="navbar navbar-expand-sm bg-light navbar-light sticky-top">
       <Link className="navbar-brand" to="/">
         <img src={logo} alt="logo" />
       </Link>
       <button
         className="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
         onClick={() => setNavbarOpen(!navbarOpen)}
       >
         <span className="navbar-toggler-icon"></span>

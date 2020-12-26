@@ -1,24 +1,26 @@
-import { graphql } from 'gatsby';
 import React from 'react';
 import BackgroundSection from '../components/BackgroundSection/BackgroundSection';
 import Info from '../components/Info/Info';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title="Home" keywords={[]} />
-    <BackgroundSection
-      img={data.img.childImageSharp.fluid}
-      title="Regular Joe's"
-    />
-    <Info />
-  </Layout>
-);
+function AboutPage({ data }) {
+  return (
+    <Layout>
+      <SEO title="About" keywords={[]} />
+      <BackgroundSection
+        img={data.img.childImageSharp.fluid}
+        title="About Us"
+        styleClass="about-background"
+      />
+      <Info />
+    </Layout>
+  );
+}
 
 export const query = graphql`
   {
-    img: file(relativePath: { eq: "default-background.jpeg" }) {
+    img: file(relativePath: { eq: "about-background.jpeg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid_tracedSVG
@@ -28,4 +30,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default AboutPage;
