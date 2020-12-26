@@ -7,7 +7,7 @@ function Menu({ items }) {
 
   useEffect(() => {
     items.edges.length > 0 && setProducts([...items.edges]);
-  }, []);
+  }, [items.edges]);
 
   return (
     <section className="menu py-5">
