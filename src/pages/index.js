@@ -4,6 +4,7 @@ import BackgroundSection from '../components/BackgroundSection/BackgroundSection
 import Info from '../components/Info/Info';
 import Layout from '../components/layout';
 import Menu from '../components/Menu/Menu';
+import Products from '../components/Products/Products';
 import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
@@ -15,6 +16,7 @@ const IndexPage = ({ data }) => (
     />
     <Info />
     <Menu items={data.menu} />
+    <Products />
   </Layout>
 );
 
@@ -49,5 +51,3 @@ export const query = graphql`
 `;
 
 export default IndexPage;
-
-// https://youtu.be/oAVhEPey_qA?t=11787
