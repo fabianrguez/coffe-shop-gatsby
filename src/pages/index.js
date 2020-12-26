@@ -8,7 +8,7 @@ import SEO from '../components/seo';
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <SEO title="Home" keywords={[]} />
+    <SEO title="Home" />
     <BackgroundSection
       img={data.img.childImageSharp.fluid}
       title="Regular Joe's"
@@ -36,6 +36,7 @@ export const query = graphql`
           }
           title
           price
+          category
           image {
             fixed(width: 50, height: 50) {
               ...GatsbyContentfulFixed
@@ -48,3 +49,5 @@ export const query = graphql`
 `;
 
 export default IndexPage;
+
+// https://youtu.be/oAVhEPey_qA?t=11787

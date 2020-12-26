@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 function AboutPage({ data }) {
   return (
     <Layout>
-      <SEO title="About" keywords={[]} />
+      <SEO title="About" />
       <BackgroundSection
         img={data.img.childImageSharp.fluid}
         title="About Us"

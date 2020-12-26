@@ -4,15 +4,52 @@ import Img from 'gatsby-image';
 
 function Menu({ items }) {
   const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [activeCategory, setActiveCategory] = useState('all');
 
   useEffect(() => {
-    items.edges.length > 0 && setProducts([...items.edges]);
+    if (items.edges.length > 0) {
+      setProducts([...items.edges]);
+      setCategories(getCategories(items.edges));
+    }
   }, [items.edges]);
+
+  const getCategories = products => {
+    const allProductsCategory = products.map(product => product.node.category);
+    return ['all', ...new Set(allProductsCategory)];
+  };
+
+  const filterCategory = category => {
+    const allProducts = [...items.edges];
+    setActiveCategory(category);
+    return category === 'all'
+      ? setProducts([...allProducts])
+      : setProducts([
+          ...allProducts.filter(({ node }) => node.category === category),
+        ]);
+  };
 
   return (
     <section className="menu py-5">
       <div className="container">
         <Title title="Best of our menu" />
+        {products.length > 0 && (
+          <div className="row mb-5">
+            <div className="col-10 mx-auto text-center">
+              {categories.map((category, index) => (
+                <button
+                  key={index}
+                  className={`btn btn-yellow text-capitalize m-3 ${
+                    activeCategory === category && 'active'
+                  } `}
+                  onClick={() => filterCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         <div className="row mb-5">
           {products.length > 0 ? (
             products.map(({ node }) => (

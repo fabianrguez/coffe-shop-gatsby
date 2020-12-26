@@ -54,9 +54,20 @@ h6 {
   min-height: 60vh;
 }
 
+.btn:active,
+.btn:focus {
+  outline: 0;
+  box-shadow: none !important;
+}
+
 .btn-yellow {
   color: var(--main-yellow) !important;
   border: 1px solid var(--main-yellow) !important;
+}
+
+.btn-yellow.active {
+  background: var(--main-yellow);
+  color: var(--main-brown) !important;
 }
 
 .btn-yellow:hover {
@@ -79,4 +90,8 @@ h6 {
 
 button.navbar-toggler {
   margin: 15px;
+}
+
+.navbar-brand {
+  margin-left: 1rem;
 }
