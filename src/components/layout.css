@@ -55,7 +55,9 @@ h6 {
 }
 
 .btn:active,
-.btn:focus {
+.btn:focus,
+button:active,
+button:focus {
   outline: 0;
   box-shadow: none !important;
 }
@@ -94,4 +96,8 @@ button.navbar-toggler {
 
 .navbar-brand {
   margin-left: 1rem;
+}
+
+.navbar-toggler {
+  border: none !important;
 }
